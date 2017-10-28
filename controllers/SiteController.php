@@ -71,14 +71,16 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
+        if (! Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
+
         return $this->render('login', [
             'model' => $model,
         ]);
@@ -109,6 +111,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         }
+
         return $this->render('contact', [
             'model' => $model,
         ]);
@@ -124,8 +127,14 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionAamir(){
+    public function actionAamir()
+    {
         return $this->render("aamir");
+    }
+
+    public function actionInquiry()
+    {
+        return $this->render('inquiry');
     }
 
     public function actionSay($message = 'Hello')
