@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\ContactForm;
+use app\models\Country;
+use app\models\InquiryForm;
 use app\models\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -134,11 +136,25 @@ class SiteController extends Controller
 
     public function actionInquiry()
     {
-        return $this->render('inquiry');
+        $model = new InquiryForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            return $this->render('inquiry-submitted', compact('model'));
+        }
+
+        return $this->render('inquiry', compact('model'));
     }
 
     public function actionSay($message = 'Hello')
     {
         return $this->render('say', ['message' => $message]);
+    }
+
+    public function actionCountry()
+    {
+        $countries = Country::findAll([]);
+
+        return $this->render('countries', compact('countries'));
     }
 }
