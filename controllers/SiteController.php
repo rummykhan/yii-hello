@@ -153,7 +153,7 @@ class SiteController extends Controller
 
     public function actionCountry()
     {
-        $countries = Country::findAll([]);
+        $countries = Country::find()->all();
 
         return $this->render('countries', compact('countries'));
     }
