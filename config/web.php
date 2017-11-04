@@ -42,7 +42,11 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [],
+            'rules' => [
+                'site/country/<code:\S+>/edit' => 'site/edit-country',
+                'site/country/<code:\S+>/delete' => 'site/delete-country',
+                'site/country/create' => 'site/country-create',
+            ],
         ],
         'view' => [
             'class' => 'yii\web\View',
@@ -58,6 +62,13 @@ $config = [
                     'uses' => ['yii\bootstrap'],
                 ],
             ],
+        ],
+        'rehan' => [
+            'class' => \app\controllers\RehanController::class,
+            'config' => [
+                'name' => 'Sundus Nayab',
+                'age' => '26'
+            ]
         ],
 
     ],

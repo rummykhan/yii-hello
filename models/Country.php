@@ -10,4 +10,13 @@ class Country extends ActiveRecord
     {
         return 'country';
     }
+
+    public function rules()
+    {
+        return [
+            [['code', 'name', 'population'], 'required'],
+            ['code', 'string', 'length' => 2],
+            ['population', 'integer'],
+        ];
+    }
 }

@@ -157,4 +157,45 @@ class SiteController extends Controller
 
         return $this->render('countries', compact('countries'));
     }
+
+    public function actionEditCountry($code)
+    {
+        $model = Country::findOne(['code' => $code]);
+        $message = null;
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $message = 'Country updated successfully!';
+
+            $model->save();
+
+            return $this->redirect("/site/country/{$model->code}/edit");
+        }
+
+        return $this->render('edit-country', compact('model'));
+    }
+
+    public function actionDeleteCountry($code)
+    {
+        $model = Country::findOne(['code', $code]);
+        if (! $model) {
+            return $this->redirect('/site/404');
+        }
+
+        $model->delete();
+
+        return $this->redirect('/site/country');
+    }
+
+    public function actionCountryCreate()
+    {
+        $model = new Country();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save();
+
+            return $this->redirect('/site/country');
+        }
+
+        return $this->render('create-country', compact('model'));
+    }
 }

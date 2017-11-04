@@ -1,5 +1,18 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
+
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
+
+        <a href="<?= Url::to('/site/country/create') ?>" class="btn btn-primary">
+            <i class="glyphicon glyphicon-plus-sign"></i> Add Country
+        </a>
+
+        <hr>
+
         <table class="table table-responsive table-bordered">
             <thead>
             <tr>
