@@ -17,6 +17,7 @@ class m171104_073653_create_users_table extends Migration
             'name' => $this->string(64),
             'email' => $this->string(128)->unique(),
             'password' => $this->string(60),
+            'auth_key' => $this->string(255)->null(),
         ]);
     }
 

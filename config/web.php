@@ -15,7 +15,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\modules\blog\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -76,8 +76,8 @@ $config = [
     'defaultRoute' => 'site/index',
     'modules' => [
         'blog' => [
-            'class' => 'app\modules\blog\Module',
-        ],
+            'class' => 'app\modules\blog\Module'
+        ]
     ],
 ];
 

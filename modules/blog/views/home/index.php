@@ -1,7 +1,8 @@
 <?php
 
 $this->context->layout = 'master';
+$this->title = 'Blog Index';
 
 ?>
 
-<?='rummykhan was here!!'?>
+<?='Module Content'?>
