@@ -74,6 +74,11 @@ $config = [
     ],
     'params' => $params,
     'defaultRoute' => 'site/index',
+    'modules' => [
+        'blog' => [
+            'class' => 'app\modules\blog\Module',
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
