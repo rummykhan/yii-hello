@@ -8,7 +8,7 @@ class Country extends ActiveRecord
 {
     static function tableName()
     {
-        return 'country';
+        return 'countries';
     }
 
     public function rules()

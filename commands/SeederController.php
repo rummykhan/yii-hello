@@ -7,6 +7,7 @@
 
 namespace app\commands;
 
+use tebazil\yii2seeder\Seeder;
 use yii\console\Controller;
 
 /**
@@ -23,17 +24,36 @@ class SeederController extends Controller
      * This command echoes what you have entered as the message.
      * @param string $message the message to be echoed.
      */
-    public function actionIndex($message = 'hello world')
+    public function actionPerson($message = 'hello world')
     {
-        echo $message . "\n";
+        $seeder = new Seeder();
+        $generator = $seeder->getGeneratorConfigurator();
+        $faker = $generator->getFakerConfigurator();
+
+        $seeder->table('person')->columns([
+            'name' => $faker->name,
+            'age' => $faker->numberBetween(20, 50),
+            'city' => $faker->city,
+            'country' => $faker->country,
+        ])->rowQuantity(200);
+
+        $seeder->refill();
     }
 
     /**
      * This command echoes what you have entered as the message.
      * @param string $message the message to be echoed.
      */
-    public function actionDoSomething($message = 'hello world')
+    public function actionUser($message = 'hello world')
     {
         echo $message . "\n";
+    }
+
+    public function actionPosts()
+    {
+    }
+
+    public function actionCountries()
+    {
     }
 }

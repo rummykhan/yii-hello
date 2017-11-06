@@ -14,7 +14,7 @@ class m171102_133504_create_person_table extends Migration
     {
         $this->createTable('person', [
             'id' => $this->primaryKey(),
-            'name' => $this->string(25),
+            'name' => $this->string(64),
             'age' => $this->smallInteger(),
             'city' => $this->string(64),
             'country' => $this->string(64),
