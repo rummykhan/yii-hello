@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\models;
 
+use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -18,6 +19,16 @@ use yii\db\ActiveRecord;
  */
 class Post extends ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */

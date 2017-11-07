@@ -8,6 +8,7 @@
 namespace app\commands;
 
 use tebazil\yii2seeder\Seeder;
+use yii\base\Security;
 use yii\console\Controller;
 
 /**
@@ -20,11 +21,24 @@ use yii\console\Controller;
  */
 class SeederController extends Controller
 {
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+
+            if (!$this->confirm('Are you sure??')) {
+                exit;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * This command echoes what you have entered as the message.
-     * @param string $message the message to be echoed.
      */
-    public function actionPerson($message = 'hello world')
+    public function actionPerson()
     {
         $seeder = new Seeder();
         $generator = $seeder->getGeneratorConfigurator();
@@ -42,18 +56,22 @@ class SeederController extends Controller
 
     /**
      * This command echoes what you have entered as the message.
-     * @param string $message the message to be echoed.
      */
-    public function actionUser($message = 'hello world')
+    public function actionUser()
     {
-        echo $message . "\n";
-    }
+        $seeder = new Seeder();
+        $generator = $seeder->getGeneratorConfigurator();
+        $faker = $generator->getFakerConfigurator();
 
-    public function actionPosts()
-    {
-    }
+        $security = new Security();
 
-    public function actionCountries()
-    {
+        $seeder->table('users')->columns([
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => $security->generatePasswordHash('123456'),
+            'auth_key' => $security->generateRandomString(32),
+        ])->rowQuantity(5);
+
+        $seeder->refill();
     }
 }
