@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d78de0ede8d7e24e8f32e07988ae8f2",
+    "content-hash": "f44ee3eb743f363a9f18497d5efaea16",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -149,6 +149,52 @@
             "time": "2017-03-20T19:02:00+00:00"
         },
         {
+            "name": "bower-asset/jquery-slugify",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/madflow/jquery-slugify.git",
+                "reference": "a873c4d22d2e2585d2dd3fdac1bf907ec3e806d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/madflow/jquery-slugify/zipball/a873c4d22d2e2585d2dd3fdac1bf907ec3e806d9",
+                "reference": "a873c4d22d2e2585d2dd3fdac1bf907ec3e806d9",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/slugify.js",
+                    "dist/slugify.min.js"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "libs",
+                    "Gruntfile.js",
+                    "package.json",
+                    "CONTRIBUTING.md",
+                    "slugify.jquery.json"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Just another another (another) url slug creation plugin for jQuery",
+            "keywords": [
+                "slugify",
+                "slugs",
+                "strings"
+            ],
+            "time": "2015-01-01T11:00:02+00:00"
+        },
+        {
             "name": "bower-asset/punycode",
             "version": "v1.3.2",
             "source": {
@@ -176,6 +222,30 @@
                 ]
             },
             "time": "2014-10-22T12:02:42+00:00"
+        },
+        {
+            "name": "bower-asset/speakingurl",
+            "version": "v14.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pid/speakingurl.git",
+                "reference": "d4b7a23985308d0c1f32eaa242f9ff99c5567a04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pid/speakingurl/zipball/d4b7a23985308d0c1f32eaa242f9ff99c5567a04",
+                "reference": "d4b7a23985308d0c1f32eaa242f9ff99c5567a04",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "lib/speakingurl.js",
+                "bower-asset-ignore": [
+                    "node_modules"
+                ]
+            },
+            "description": "Generate a slug – transliteration with a lot of options",
+            "time": "2017-08-23T06:42:40+00:00"
         },
         {
             "name": "bower-asset/yii2-pjax",
@@ -463,6 +533,48 @@
             ],
             "description": "`dd` is a helper method in Laravel. This package will add the `dd` to your application.",
             "time": "2016-12-15T09:34:34+00:00"
+        },
+        {
+            "name": "modernkernel/yii2-slugify",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/modernkernel/yii2-slugify.git",
+                "reference": "c7a85135f626f7e8105a6d9d5746a07a162b0c20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/modernkernel/yii2-slugify/zipball/c7a85135f626f7e8105a6d9d5746a07a162b0c20",
+                "reference": "c7a85135f626f7e8105a6d9d5746a07a162b0c20",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-slugify": "~1.0.0",
+                "bower-asset/speakingurl": "*",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "modernkernel\\slugify\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Harry Tang",
+                    "email": "harry@modernkernel.com"
+                }
+            ],
+            "description": "Slugify extension for Yii2",
+            "keywords": [
+                "slugify",
+                "yii2"
+            ],
+            "time": "2016-12-25T14:43:45+00:00"
         },
         {
             "name": "smarty/smarty",

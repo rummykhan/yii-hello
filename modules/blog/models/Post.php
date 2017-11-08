@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\models;
 
+use yii\base\Event;
 use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveRecord;
 

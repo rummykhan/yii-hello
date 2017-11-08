@@ -1,7 +1,7 @@
 <?php
 
-$params = require(__DIR__.'/params.php');
-$db = require(__DIR__.'/db.php');
+$params = require(__DIR__ . '/params.php');
+$db = require(__DIR__ . '/db.php');
 
 $config = [
     'id' => 'basic',
@@ -46,6 +46,10 @@ $config = [
                 'site/country/<code:\S+>/edit' => 'site/edit-country',
                 'site/country/<code:\S+>/delete' => 'site/delete-country',
                 'site/country/create' => 'site/country-create',
+                'blog/posts/mine' => 'blog/posts/mine',
+                'blog/posts/<slug:\S+>$' => 'blog/posts/detail',
+                'blog/posts/<id:\d+>/edit' => 'blog/posts/edit',
+                'blog/posts/<id:\d+>/delete' => 'blog/posts/delete',
             ],
         ],
         'view' => [

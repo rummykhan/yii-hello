@@ -9,5 +9,6 @@ class Module extends BaseModule
     public function init()
     {
         parent::init();
+        \Yii::configure($this, require __DIR__ . '/config.php');
     }
 }

@@ -79,6 +79,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $user = static::findOne(['email' => $this->email]);
 
+        if (!$user) {
+            return false;
+        }
+
+        if (!$user->validatePassword($this->password)) {
+            return false;
+        }
+
         return \Yii::$app->user->login($user);
     }
 
@@ -91,5 +99,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function getPosts()
     {
         return $this->hasMany(Post::className(), ['user_id' => 'id']);
+    }
+
+    public function validatePassword($password)
+    {
+        $security = new Security();
+        return $security->validatePassword($password, $this->password);
     }
 }

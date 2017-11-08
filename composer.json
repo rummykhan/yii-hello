@@ -28,7 +28,8 @@
     "larapack/dd": "^1.1",
     "fxp/composer-asset-plugin": "^1.4",
     "tebazil/yii2-db-seeder": "^0.0.0",
-    "modernkernel/yii2-slugify": "^1.0"
+    "modernkernel/yii2-slugify": "^1.0",
+    "fzaninotto/faker": "^1.7"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",

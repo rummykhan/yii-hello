@@ -7,9 +7,12 @@
 
 namespace app\commands;
 
+use app\modules\blog\models\Post;
+use Faker\Factory;
 use tebazil\yii2seeder\Seeder;
 use yii\base\Security;
 use yii\console\Controller;
+use yii\helpers\Inflector;
 
 /**
  * This command echoes the first argument that you have entered.
@@ -73,5 +76,21 @@ class SeederController extends Controller
         ])->rowQuantity(5);
 
         $seeder->refill();
+    }
+
+    public function actionPosts()
+    {
+        $faker = Factory::create();
+        for ($i = 0; $i < 200; $i++) {
+            $post = new Post();
+            $post->title = $faker->text(125);
+            $post->content = implode(' ', $faker->paragraphs(5));
+            $post->created_at = date('Y-m-d H:i:s', time());
+            $post->user_id = rand(1, 5);
+            $post->save();
+
+            print($post->title);
+            print("\n");
+        }
     }
 }
